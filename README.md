@@ -106,5 +106,8 @@ Hacer este desarrollo a medida tiene ventajas frente a usar un taller genérico 
 ---
 
 <img width="2486" height="1362" alt="Captura de pantalla 2026-04-19 132330" src="https://github.com/user-attachments/assets/edadc793-ae77-4e13-ae38-3cfd7b01e2d6" />
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 <img width="2494" height="650" alt="Captura de pantalla 2026-04-19 132347" src="https://github.com/user-attachments/assets/f1fe6192-975d-45ee-95e4-6fb091aa208a" />
 

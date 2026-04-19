@@ -104,9 +104,3 @@ Hacer este desarrollo a medida tiene ventajas frente a usar un taller genérico 
 *Arquitecto de Sistemas y Automatización*
 
 ---
-
-### 💡 Sugerencia para ti (Usuario):
-Cuando se lo entregues, puedes decirle:
-> *"He creado una herramienta que básicamente digitaliza lo que haría un buen mecánico: no solo leer el error, sino investigar qué lo causa y guiarte paso a paso para arreglarlo sin riesgos. Ahora mismo está probado al 100% en simulación, solo falta el último paso para conectarlo a tu portátil y al coche."*
-
-¿Quieres que pasemos a la **Fase 6 (Driver Real Windows)** ahora, o prefieres ajustar algo de este documento? 

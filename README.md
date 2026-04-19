@@ -5,7 +5,7 @@
 
 **Fecha:** 19 de Abril, 2026  
 **Vehículo:** Audi A3 8L (1.9 TDI) - WAUZZZ8L83A055890  
-**Operador:** [Tu Nombre]  
+**Operador:** Daniel Fernández  
 **Plataforma de Ejecución:** Portátil Windows 10 (Aislado y Seguro)
 
 ---

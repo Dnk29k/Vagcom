@@ -131,3 +131,161 @@ Dnk29k
 
 <img width="2494" height="650" alt="Captura de pantalla 2026-04-19 132347" src="https://github.com/user-attachments/assets/f1fe6192-975d-45ee-95e4-6fb091aa208a" />
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<img width="2491" height="1412" alt="Captura de pantalla 2026-04-19 210444" src="https://github.com/user-attachments/assets/3332e084-01b9-4c81-ad5c-5172b86933c5" />
+
+
+-------------------------------------------------------------------------- V2 --------------------------------------------------------------------------------------------
+
+------V.2-------
+
+```markdown
+# 🚗 VCDs Automation - Asistente de Diagnóstico Inteligente VAG
+
+Sistema integral de diagnóstico, análisis y gestión para vehículos del grupo VAG (Audi A3 8L, VW Golf IV, etc.), impulsado por IA local, validado con la interfaz real de **VCDS 25.3.0** y diseñado para uso seguro en taller o particular.
+
+---
+
+## ✨ Características Principales
+
+### 🧠 Agente Técnico con IA Local
+- Motor de razonamiento basado en **Qwen 2.5:7b** (Ollama)
+- Base de conocimiento RAG indexada con manuales, TSBs y procedimientos VAG
+- Chat híbrido: **Offline por defecto**, búsqueda web bajo demanda (`/web on`)
+- Validación estricta contra interfaz real VCDS (Grupos 003/010/011, botones reales)
+
+### 🛡️ Seguridad y Auditoría
+- **Safety Lock:** Confirmación humana obligatoria `[S/N]` para cualquier acción modificadora
+- Backups automáticos pre-intervención
+- Logs de auditoría inmutables con hash SHA-256
+- **100% Privado:** Ningún dato del vehículo sale del equipo
+
+### 📊 Análisis de Datos y Logs
+- Analizador de logs VCDS reales (CSV) con diagnóstico automático
+- Comparativa en tiempo real: valores medidos vs especificaciones VAG
+- Detección de anomalías (MAF, presión de admisión, duty cycle N75, desviaciones de turbo)
+- Generación automática de informes HTML profesionales con tablas técnicas y estados
+
+### 💻 Interfaz y Usabilidad
+- `launcher.py`: Menú numérico amigable (11 opciones) para usuarios no técnicos
+- Informes firmados criptográficamente, listos para imprimir o enviar a taller
+- Driver preparado para Windows (`pywinauto`) + Mock estable para Linux/macOS
+
+---
+
+## 🔒 Seguridad y Privacidad
+
+| Principio | Implementación |
+|-----------|----------------|
+| 🔒 Confirmación Humana | Ninguna acción crítica se ejecuta sin autorización explícita |
+| 💾 Backup Automático | Copia de seguridad de módulos antes de cualquier intervención |
+|  100% Offline | IA, RAG y análisis corren localmente. Cero transmisión a la nube |
+| 📜 Auditoría Inmutable | Cada sesión queda registrada con timestamp, hash y resultado |
+
+---
+
+## 📦 Requisitos e Instalación
+
+### Hardware/Software Base
+- Python 3.10+
+- Ollama + modelo `qwen2.5:7b`
+- VCDS 25.3.0 (para modo real) o Mock driver incluido
+- Sistema: Linux (desarrollo), Windows 10/11 (producción)
+
+### Instalación Rápida
+```bash
+# 1. Clonar repositorio
+git clone https://github.com/Dnk29k/vcds-automation.git
+cd vcds-automation
+
+# 2. Entorno virtual
+python3 -m venv venv
+source venv/bin/activate  # Linux/macOS
+# venv\Scripts\activate   # Windows
+
+# 3. Dependencias
+pip install -r requirements.txt
+
+# 4. Descargar modelo IA (una vez)
+ollama pull qwen2.5:7b
+
+# 5. Ejecutar
+python launcher.py
+```
+
+---
+
+## 🎮 Uso Rápido
+
+```bash
+python launcher.py
+```
+
+| Opción | Funcionalidad |
+|--------|---------------|
+| `1` | Escaneo completo de fallos |
+| `2` | Diagnóstico asistido por IA (DTC específico) |
+| `3` | Informe técnico básico (HTML firmado) |
+| `4` | Informe avanzado con gráficos y métricas |
+| `5` | Verificación ITV (Readiness & SRI) |
+| `6` | Backup de módulos críticos |
+| `7` | Borrado de DTCs (Safety Lock activado) |
+| `8` | Historial SQLite de escaneos |
+| `9` | Data Logger (grabación en vivo) |
+| `10` | Chat con Agente Técnico (`/web on` para online) |
+| `11` | Analizador de Logs VCDS (CSV → Informe técnico) |
+
+---
+
+## 🗺️ Arquitectura por Fases
+
+| Fase | Estado | Descripción |
+|------|--------|-------------|
+| **0-2** | ✅ Estable | Mock Driver, integración LLM, prompt técnico estructurado |
+| **3** | ✅ Estable | Safety Lock, confirmación humana, logs de auditoría |
+| **4** | ✅ Estable | Plantilla profesional, menú interactivo, renderizado ASCII/HTML |
+| **5** | ✅ Estable | RAG técnico, `tasks.yaml`, base de conocimiento indexada |
+| **6** | 🟡 Preparado | Driver Windows (`pywinauto`) listo para integración con HEX-V2 |
+| **7** | ✅ Estable | Chat híbrido, validación VCDS real, informes firmados |
+| **8** | ✅ Estable | Analizador de logs CSV, diagnóstico automático, comparativas VAG |
+
+---
+
+## 📊 Integración con VCDS Real
+
+El sistema está calibrado con la interfaz **real de VCDS Release 25.3.0**:
+- ✅ Grupos válidos: `003` (EGR), `010` (Air System), `011` (Charge Pressure)
+- ✅ Botones reales: `[Meas. Blocks - 08]`, `[Basic Settings - 04]`, `[Done, Close]`, etc.
+- ✅ Validación en tiempo real: el agente nunca inventa menús o rutas inexistentes
+- ✅ Soporte para exportaciones CSV nativas de VCDS (`LOG-01-003-010-011.CSV`)
+
+---
+
+## 🔄 Roadmap: Refinamientos (Próxima Fase)
+
+- 📈 Gráficos interactivos embebidos (Chart.js) en informes HTML
+- 🌍 Soporte multi-chasis/motor (A4 B6, Golf IV, Seat León 1M)
+- 📄 Exportación a PDF profesional con cabecera de taller
+- 🗣️ Comandos por voz locales (`whisper.cpp`) para uso hands-free
+- 🧩 Módulo de codificación guiada (Bytes → Funciones humanas)
+
+---
+
+## ⚖️ Licencia y Aviso Legal
+
+> 🔧 Este software es una herramienta de asistencia técnica. **No sustituye el criterio de un profesional cualificado.**  
+> Las recomendaciones se basan en documentación técnica VAG y datos en tiempo real. Úsalo bajo tu responsabilidad.  
+> Proyecto de código abierto para uso educativo y diagnóstico particular.
+
+**Desarrollado por:** [Dnk29k]  
+**Repositorio:** https://github.com/Dnk29k/vcds-automation  
+**Versión:** `v1.1-pre-refinements`
+```
+
+---
+>>>>>>> d61d475 (feat: v1.1 - README actualizado, log analyzer integrado, chat híbrido y validación VCDS real)
+
+
+
+

@@ -100,7 +100,7 @@ Hacer este desarrollo a medida tiene ventajas frente a usar un taller genérico 
 ---
 
 **Firma del Desarrollador:**  
-*(Tu Nombre)*  
+*Dnk29k*  
 *Arquitecto de Sistemas y Automatización*
 
 ---
